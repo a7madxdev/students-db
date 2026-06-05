@@ -1,3 +1,19 @@
+import InputField from "@/components/InputField";
+import DatePicker from "react-date-picker";
+import AddStudentForm from "./components/AddStudentForm";
+
 export default function Home() {
-  return <div className="">qwe</div>;
+  return (
+    <>
+      <section className="text-center py-10 px-5">
+        <h1 className="text-2xl font-bold text-dark mb-2">
+          قاعدة بيانات طلاب الموهبة والتميز
+        </h1>
+        <p className="text-slate-500">
+          إتحاد طلاب وخريجي مدرسة الموهبة والتميز
+        </p>
+      </section>
+      <AddStudentForm />
+    </>
+  );
 }
