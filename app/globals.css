@@ -1,1 +1,46 @@
 @import "tailwindcss";
+
+@theme {
+  --color-dark: #2c5ead;
+  --color-primary: #1591dc;
+  --color-secondary: #4bb8fa;
+  --color-light: #c4e2f5;
+}
+
+@utility scrollbar-hide {
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* Safari & Chrome */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scrollbar-default {
+  /* Firefox */
+  scrollbar-width: auto;
+
+  /* Safari & Chrome */
+  &::-webkit-scrollbar {
+    display: block;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.about-section {
+  scroll-margin-top: 90px;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+input,
+textarea,
+button {
+  outline: none;
+}
