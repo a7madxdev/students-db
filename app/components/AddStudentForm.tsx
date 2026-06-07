@@ -134,7 +134,7 @@ function AddStudentForm() {
                 type="radio"
                 id="male-gender"
                 name="gender"
-                checked
+                checked={formData.gender === "male"}
                 value="male"
                 onChange={handleChange}
               />
@@ -145,6 +145,7 @@ function AddStudentForm() {
                 type="radio"
                 id="female-gender"
                 name="gender"
+                checked={formData.gender === "female"}
                 value="female"
                 onChange={handleChange}
               />

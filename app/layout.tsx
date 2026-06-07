@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
+import { AlertProvider } from "@/context/AlertContext";
 
 const cairo = localFont({
   src: [
@@ -31,8 +32,10 @@ export default function RootLayout({
       className={`${cairo.className} h-full antialiased`}
     >
       <body className="">
-        <Header />
-        <main className="">{children}</main>
+        <AlertProvider>
+          <Header />
+          <main className="">{children}</main>
+        </AlertProvider>
       </body>
     </html>
   );
