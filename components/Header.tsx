@@ -1,6 +1,12 @@
-import { Settings } from "lucide-react";
+"use client";
+
+import { Settings as SettingsIcon } from "lucide-react";
+import Settings from "./Settings";
+import { useState } from "react";
+import { AnimatePresence } from "motion/react";
 
 function Header() {
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   return (
     <header className="flex items-center bg-light border-b border-secondary p-3 text-slate-800">
       <div className="flex-1 flex items-center gap-2">
@@ -9,9 +15,12 @@ function Header() {
           زول ساي
         </p>
       </div>
-      <button>
-        <Settings />
+      <button onClick={() => setIsSettingsOpen((prev) => !prev)}>
+        <SettingsIcon />
       </button>
+      <AnimatePresence>
+        {isSettingsOpen && <Settings close={() => setIsSettingsOpen(false)} />}
+      </AnimatePresence>
     </header>
   );
 }
