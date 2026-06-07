@@ -11,7 +11,8 @@ const InputField = ({
   id,
   theme = "light",
   value,
-  setValue,
+  setValue = () => {},
+  onChange = () => {},
   placeholder,
   className,
   disabled = false,
@@ -26,7 +27,8 @@ const InputField = ({
   Icon?: any;
   theme?: "light" | "dark";
   value?: any;
-  setValue?: any;
+  setValue?: (value: string) => void;
+  onChange?: (e: any) => void;
   placeholder?: string;
   className?: string;
   disabled?: boolean;
@@ -61,7 +63,10 @@ const InputField = ({
         type={type !== "password" ? type : passVisible ? "text" : "password"}
         name={name}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => {
+          setValue(e.target.value);
+          onChange(e);
+        }}
         placeholder={placeholder}
         ref={ref}
         onFocus={onFocus}
