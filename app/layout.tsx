@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import { AlertProvider } from "@/context/AlertContext";
+import { ToastProvider } from "@/context/ToastContext";
 
 const cairo = localFont({
   src: [
@@ -33,8 +34,10 @@ export default function RootLayout({
     >
       <body className="">
         <AlertProvider>
-          <Header />
-          <main className="">{children}</main>
+          <ToastProvider>
+            <Header />
+            <main className="">{children}</main>
+          </ToastProvider>
         </AlertProvider>
       </body>
     </html>

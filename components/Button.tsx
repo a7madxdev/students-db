@@ -19,9 +19,9 @@ function Button({
   disabled?: boolean;
 }) {
   const styles = {
-    default: "bg-slate-300 text-slate-800 font-normal",
-    primary: "bg-primary text-navy font-medium hover:bg-cream",
-    dark: "bg-dark text-white font-medium hover:bg-accent",
+    default: "bg-slate-300 text-slate-800 font-bold",
+    primary: "bg-primary text-navy hover:bg-cream",
+    dark: "bg-dark text-white hover:bg-accent",
     danger: "bg-red-500 text-white font-semibold",
     danger2: "bg-red-600/30 text-red-600",
   };
@@ -34,7 +34,7 @@ function Button({
     <button
       type={type}
       className={twMerge(
-        "rounded-md text-sm text-nowrap duration-150 hover:scale-96",
+        "rounded-md text-sm font-bold text-nowrap duration-150 hover:scale-96",
         disabled && "opacity-50 pointer-events-none",
         sizes[size],
         styles[style],
