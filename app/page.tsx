@@ -1,6 +1,7 @@
-import InputField from "@/components/InputField";
-import DatePicker from "react-date-picker";
 import AddStudentForm from "./components/AddStudentForm";
+import AdminDashboard from "./components/AdminDashboard";
+
+const admin = false;
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
           قاعدة بيانات طلاب الموهبة والتميز
         </h1>
       </section>
-      <AddStudentForm />
+
+      {admin ? <AdminDashboard /> : <AddStudentForm />}
     </>
   );
 }

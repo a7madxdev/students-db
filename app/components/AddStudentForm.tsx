@@ -6,6 +6,7 @@ import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
 import Button from "@/components/Button";
 import dynamic from "next/dynamic";
+import { useToast } from "@/context/ToastContext";
 
 const DatePickerWithNoSSR = dynamic(() => import("react-date-picker"), {
   ssr: false,
@@ -38,6 +39,7 @@ function AddStudentForm() {
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ text: "", isError: false });
+  const { showToast } = useToast();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -83,6 +85,7 @@ function AddStudentForm() {
           interests: "",
           notes: "",
         });
+        showToast("تمت إضافة الطالب بنجاح", "success");
       } else {
         const err = Object.values(result.errors ?? {})[0] as {
           errors?: string[];
